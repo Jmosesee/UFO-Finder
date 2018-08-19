@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>UFO Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">UFO Sightings
+            <img class="nav-ufo" src="static/images/ufo.svg">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero text-center">
+      <h1>UFO Sightings</h1>
+      <p>The Truth is Out There</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-20">
+        <!-- <div class="col-md-2"> -->
+        <form>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span>Filter Search</span>
+              <span>
+                <button id="reset-btn" type="reset" class="btn btn-default">Reset Filters</button>
+              </span>
+            </div>
+            <div class="panel-body">
+              <span class="filter">
+                <div><label for="date">Enter a Date</label></div>
+                <div><input class="form-control" id="datetime" type="date" placeholder="mm/dd/yyyy"></div>
+              </span>
+              <span class="filter">
+                <div><label for="city">City Search</label></div>
+                <div><input class="form-control" id="city" type="text" placeholder="city"></div>
+              </span>
+              <span class="filter">
+                <div><label for="state">State Search</label></div>
+                <div><input class="form-control" id="state" type="text" placeholder="state"></div>
+              </span>
+              <span class="filter">
+                <div><label for="shape">Shape Search</label></div>
+                <div><input class="form-control" id="shape" type="text" placeholder="shape"></div>
+              </span>
+              <span class="filter">
+                <div><label for="comments">Comment Search</label></div>
+                <div><input class="form-control" id="comments" type="text" placeholder="comment"></div>
+              </span>
+            </div>
+          </div>
+        </form>
+        <!-- </div> -->
+        <!-- <div class="col-md-10"> -->
+          <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th><select id="select-state"><option value=""></option></select></th>
+                  <th></th>
+                  <th><select id="select-shape"><option value=""></option></select></th>
+                </tr>
+                <tr>
+                  <th><span>
+                    <button type="button" id="date-up" class="sort-button">
+                      <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                    <span><button type="button" id="date-down" class="sort-button">
+                      <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                  <th><span>
+                    <button type="button" id="city-up" class="sort-button">
+                        <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                    <span><button type="button" id="city-down" class="sort-button">
+                        <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                  <th><span>
+                    <button type="button" id="state-up" class="sort-button">
+                        <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                   <span><button type="button" id="state-down" class="sort-button">
+                        <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                  <th></th>
+                  <th><span>
+                    <button type="button" id="shape-up" class="sort-button">
+                        <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                    <span><button type="button" id="shape-down" class="sort-button">
+                        <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                  <th></th>
+                  <th><span>
+                    <button type="button" id="duration-up" class="sort-button">
+                        <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                    <span><button type="button" id="duration-down" class="sort-button">
+                        <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                  <th><span>
+                    <button type="button" id="comments-up" class="sort-button">
+                        <img src="static\images\up.png" class="sort-img" alt="Up" height="10" width="12">
+                    </button></span>
+                    <span><button type="button" id="comments-down" class="sort-button">
+                        <img src="static\images\down.png" class="sort-img" alt="Down" height="10" width="12">
+                    </button></span>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Reported Duration</th>
+                  <th class="table-head">Converted Duration (Minutes)</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody id="ufo-tbody"></tbody>
+            </table>
+          </div>
+        <!-- </div>
+      </div> -->
+    </div>
+    <footer class="footer">
+      <span class="bottom">UFO Sightings</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
